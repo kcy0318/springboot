@@ -1,0 +1,33 @@
+spring:
+  mvc:
+    format:
+      date: "yyyy-mm-dd"
+  web:
+    resources:
+      static-locations: "classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/,classpath:/templates/,classpath:/Mapper/"
+  thymeleaf:
+    cache: false
+    suffix: ".html"
+    prefix: "classpath:/templates/"
+  # 配置连接数据库的四要素
+  datasource:
+    url: "jdbc:mysql://localhost:3306/springboot?characterEncoding=utf8"
+    password: "kcykwg"
+    username: "root"
+    driver-class-name: com.mysql.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+#开启驼峰命名
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    # 日志形式
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 将xml文件进行映射
+  mapper-locations: "classpath:/Mapper/*.xml"
+
+file:
+  path: E:\KCY\大学\实训\springbootmvc\src\main\resources\static\file

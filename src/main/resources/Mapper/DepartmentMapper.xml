@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.Mapper.DepartmentMapper">
+
+    <select id="getAllDepartment" resultType="com.neuedu.pojo.Department">
+        select * from department
+    </select>
+
+    <select id="getDepartment" resultType="com.neuedu.pojo.Department">
+        select * from department where id=#{id}
+    </select>
+
+    <update id="updateDepartment" parameterType="com.neuedu.pojo.Department">
+        update department set department_name=#{departmentName} where id=#{id}
+    </update>
+
+    <insert id="insertDepartment" parameterType="com.neuedu.pojo.Department">
+        insert into department(department_name) value (#{departmentName})
+    </insert>
+
+    <delete id="deleteDepartment" parameterType="int">
+        delete from department where id = #{id}
+    </delete>
+
+</mapper>

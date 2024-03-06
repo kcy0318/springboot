@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Phoenix</title>
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="/css/css2.css" rel="stylesheet">
+    <link href="/css/css21.css" rel="stylesheet">
+    <link href="/css/phoenix.min.css" rel="stylesheet" id="style-default">
+    <link href="#" rel="stylesheet" id="user-style-default">
+    <style>
+        body {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+<main class="main" id="top">
+    <div class="container-fluid px-0">
+        <nav th:replace="~{common/common :: #navbar_left}"></nav>
+        <nav th:replace="~{common/common :: #navbar_top}"></nav>
+        <div class="content pt-5">
+            <h2 class="mb-2 lh-sm"></h2>
+            <p class="text-700 lead mb-2"></p><a class="btn btn-link p-0" href="javascript:;"
+                                                 target="_blank"></a>
+            <div class="mt-4">
+                <div class="row g-4">
+                    <div class="col-12 col-xl-10 order-1 order-xl-0">
+                        <div class="card shadow-none border border-300 my-4" data-component-card="">
+                            <div class="card-header p-4 border-bottom border-300 bg-soft">
+                                <div class="row g-3 justify-content-between align-items-center">
+                                    <div class="col-12 col-md">
+                                        <h3 class="text-900 mb-0" data-anchor="">添加员工信息</h3>
+                                    </div>
+                                    <div class="col col-md-auto">
+                                        <nav class="nav nav-underline justify-content-end border-0 doc-tab-nav align-items-center"
+                                             role="tablist">
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 code-to-copy">
+                                <form action="insertEmployee" method="post">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="basic-form-name">姓名</label>
+                                        <input class="form-control" id="basic-form-name" name="name" placeholder="Name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="basic-form-email">邮箱</label>
+                                        <input class="form-control" id="basic-form-email" name="email" type="email" placeholder="name@example.com">
+                                    </div>
+                                    <div class="mb-3"><label class="form-label" for="basic-form-password">密码</label>
+                                        <input class="form-control" id="basic-form-password" name="password" type="password" placeholder="Password">
+                                    </div>
+                                    <div class="mb-3"><label class="form-label" for="basic-form-dob">生日</label>
+                                        <input class="form-control" id="basic-form-dob" name="birth" type="date">
+                                    </div>
+                                    <div class="mb-3"><label class="form-label" for="basic-form-gender">性别</label>
+                                        <select class="form-select" id="basic-form-gender" name="gender" aria-label="Default select example">
+                                        <option selected="selected">Select your gender</option>
+                                        <option value="1">男</option>
+                                        <option value="0">女</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="basic-form-gender">部门</label>
+                                        <select class="form-select" id="basic-form-department" name="department" aria-label="Default select example">
+                                        <option selected="selected">Select your department</option>
+                                        <option th:each="d:${departments}" th:value="${d.id}" th:text="${d.departmentName}">技能部</option>
+                                        </select>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">添加</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+<script src="/js/phoenix.js"></script>
+</body>
+
+</html>

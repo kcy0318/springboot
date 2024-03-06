@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Phoenix</title>
+
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="css/css2.css" rel="stylesheet">
+    <link href="css/css21.css" rel="stylesheet">
+    <link href="css/phoenix.min.css" rel="stylesheet" id="style-default">
+    <link href="#" rel="stylesheet" id="user-style-default">
+    <style>
+        body {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+<main class="main" id="top">
+    <div class="container-fluid px-0">
+        <nav th:replace="~{common/common :: #navbar_left}"></nav>
+        <nav th:replace="~{common/common :: #navbar_top}"/>
+        <div class="content pt-5">
+            <h2 class="mb-2 lh-sm"></h2>
+            <p class="text-700 lead mb-2"></p><a class="btn btn-link p-0" href="javascript:;" target="_blank"></a>
+            <div class="mt-4">
+                <div class="row g-4">
+                    <div class="col-12 col-xl-10 order-1 order-xl-0">
+                        <div class="card shadow-none border border-300 my-5" data-component-card="">
+                            <div class="card-header p-4 border-bottom border-300 bg-soft">
+                                <div class="row g-3 justify-content-between align-items-end">
+                                    <div class="col-12 col-md">
+                                        <h3 class="text-900 mb-0" data-anchor="">员工信息详情表</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 code-to-copy">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">姓名</th>
+                                            <th scope="col">邮箱</th>
+                                            <th scope="col">性别</th>
+                                            <th scope="col">部门</th>
+                                            <th scope="col">生日</th>
+                                            <th scope="col">密码</th>
+                                            <th scope="col">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="e:${employees}">
+                                        <td th:text="${e.name}">张三</td>
+                                        <td th:text="${e.email}">1145141@163.com</td>
+                                        <td th:if="${e.gender==1}">男</td>
+                                        <td th:if="${e.gender==0}">女</td>
+                                        <td th:text="${e.eDepartment.departmentName}">技术部</td>
+                                        <td th:text="${e.birth}">2000-08-12</td>
+                                        <td th:text="${e.password}">123456</td>
+                                        <td>
+                                            <a class="btn btn-primary me-1 mb-1" th:href="@{/toUpdatePage/}+${e.id}" type="button">修改</a>
+                                            <a class="btn btn-danger me-1 mb-1" type="button">删除</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+<script src="js/phoenix.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.Mapper.EmployeeMapper">
+
+    <resultMap id="EmployeeMap" type="com.neuedu.pojo.Employee">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="email" column="email"/>
+        <result property="gender" column="gender"/>
+        <result property="password" column="password"/>
+        <result property="department" column="department"/>
+        <result property="birth" column="birth"/>
+        <association property="eDepartment" javaType="com.neuedu.pojo.Department">
+            <result property="departmentName" column="department_name"/>
+        </association>
+    </resultMap>
+    <select id="getAllEmployee" resultMap="EmployeeMap">
+        select e.*,d.department_name from department d, employee e
+        where e.department = d.id
+    </select>
+
+
+    <resultMap id="EmployeeMap01" type="com.neuedu.pojo.Employee">
+        <association property="eDepartment" javaType="com.neuedu.pojo.Department">
+            <result property="departmentName" column="department_name"/>
+        </association>
+    </resultMap>
+    <select id="getEmployee" resultMap="EmployeeMap01">
+        select e.*,d.department_name from department d, employee e
+        where e.department = d.id and id = #{id}
+    </select>
+
+
+    <resultMap id="EmployeeMap02" type="com.neuedu.pojo.Employee">
+        <association property="eDepartment" javaType="com.neuedu.pojo.Department">
+            <result property="departmentName" column="department_name"/>
+        </association>
+    </resultMap>
+    <select id="getEmployeeByName" resultMap="EmployeeMap02">
+        select e.*,d.department_name from department d, employee e
+        where e.department = d.id and e.id = #{id} and e.name like "%"#{name}"%"
+    </select>
+
+    <select id="findByEmailAndPwd" parameterType="com.neuedu.pojo.Employee" resultType="com.neuedu.pojo.Employee">
+        select * from employee where email=#{email} and password=#{password}
+    </select>
+
+</mapper>

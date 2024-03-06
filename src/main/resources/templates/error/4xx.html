@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Phoenix</title>
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="/css/css2.css" rel="stylesheet">
+    <link href="/css/css21.css" rel="stylesheet">
+    <link href="/css/phoenix.min.css" rel="stylesheet" id="style-default">
+    <link href="#" rel="stylesheet" id="user-style-default">
+    <style>
+      body {
+        opacity: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="main" id="top">
+      <div class="container-fluid px-0">
+        <div class="px-3">
+          <div class="row min-vh-100 flex-center px-5">
+            <div class="col-12 col-xl-10 col-xxl-8">
+              <div class="row justify-content-center g-5">
+                <div class="col-12 col-lg-6 text-center order-lg-1"><img class="img-fluid" src="/picture/404-illustration.png" alt="" width="540"></div>
+                <div class="col-12 col-lg-6 text-center text-lg-start"><img class="img-fluid mb-3 w-lg-75" src="/picture/404.png" alt="">
+                  <h2 class="text-800 fw-bolder mb-3">Page Missing!</h2>
+                  <p th:text="${code}"/>
+                  <p th:text="${msg}"/>
+                  <p th:text="${msg1}"/>
+                  <a class="btn btn-lg btn-primary" href="index.html">Go Home</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="/js/phoenix.js"></script>
+  </body>
+
+</html>
